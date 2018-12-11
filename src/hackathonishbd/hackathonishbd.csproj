@@ -89,6 +89,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -101,6 +102,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="NHibernateHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
