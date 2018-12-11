@@ -2,7 +2,7 @@
 En este hackathon-ish se utilizó el gestor de base de datos PostgreSQL. En este directorio se encuentran archivos relacionados con la base de datos como el *archivo importable* de la base de datos y documentación adicional para entender mejor su funcionamiento.
 
 ## ¿Cómo importar la base de datos?
-Para importar la base de datos a PostgreSQL es necesario crear la base de datos desde PostgreSQL con los comandos:
+Para importar la base de datos a PostgreSQL es necesario crear la base de datos desde PostgreSQL **si no existe** con los comandos:
 ```shell
 # Entrar al CLI de PostgreSQL.
 psql -U postgres -W
@@ -18,7 +18,12 @@ El siguiente paso es dirigirse al directorio del *archivo importable*. Una vez e
 ```shell
 # Importar archivo dbexport.pgsql a la base de datos hackathonishbd.
 psql -U postgres -W hackathonishbd < "dbexport.pgsql"
+```
 
+## ¿Cómo exportar la base de datos?
+Para exportar una base de datos en postgres se usa el comando `pg_dump` en lugar de `psql` de la siguiente manera: 
+```shell
+pg_dump -U postgres -W hackathonishbd > "dbexport.pgsql"
 ```
 
 ## Comandos útiles del CLI de PostgreSQL
