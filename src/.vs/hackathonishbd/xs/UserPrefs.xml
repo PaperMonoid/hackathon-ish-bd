@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{0EB7D35A-34B3-47A4-BADF-3CFB7D23B9FC}|">
+  <MonoDevelop.Ide.ItemProperties.hackathonishbd.Tests FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="hackathonishbd/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="hackathonishbd/Controllers/HomeController.cs" Line="14" Column="48" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.hackathonishbd PreferredExecutionTarget="firefox" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
