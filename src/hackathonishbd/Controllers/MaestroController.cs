@@ -67,7 +67,15 @@ namespace hackathonishbd.Controllers
                     alumnos = alumnos.Where(x => x.Apellido == Valor);
                     break;
             }
-            ViewData["Alumnos"] = alumnos.ToList();
+            ViewData["AlumnosCalificaciones"] = alumnos
+                .Select(x => new AlumnoCalificacion
+                {
+                    Alumno = x,
+                    Calificacion = session.Query<Calificacion>()
+                                          .Where(y => x.IdUsuario == 193440920 && x.IdUsuario == y.IdAlumno)
+                                          .FirstOrDefault()
+                })
+                .ToList();
             ViewData["Total"] = session.Query<Calificacion>()
                               .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                               .Count();

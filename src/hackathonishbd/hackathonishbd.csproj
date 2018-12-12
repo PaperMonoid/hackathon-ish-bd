@@ -167,6 +167,7 @@
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="Models\AlumnoCalificacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />

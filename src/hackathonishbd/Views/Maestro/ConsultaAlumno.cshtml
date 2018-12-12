@@ -36,45 +36,56 @@
 <label>Mínimo: </label><label><a href="#@minId">@minValor</a></label>
 <br/>
 <ul class="list-group"> 
-    @foreach (Usuario usuario in ViewData["Alumnos"] as List<Usuario>)
+    @foreach (AlumnoCalificacion x in ViewData["AlumnosCalificaciones"] as List<AlumnoCalificacion>)
     {
-        <li id="@usuario.IdUsuario" class="list-group-item">
+        <li id="@x.Alumno.IdUsuario" class="list-group-item">
             <div class="form-group">
                 <label for="IdUsuario">Id Alumno</label>
-                <input class="form-control" type="text" pattern="[0-9]+" name="IdUsuario" placeholder="Id Alumno" value="@usuario.IdUsuario"/>
+                <input class="form-control" type="text" pattern="[0-9]+" name="IdUsuario" placeholder="Id Alumno" value="@x.Alumno.IdUsuario"/>
             </div>
             <div class="form-group">
                 <label for="Nombre">Nombre</label>
-                <input class="form-control" type="text" pattern="[A-z ]+" name="Nombre" placeholder="Nombre" value="@usuario.Nombre"/>
+                <input class="form-control" type="text" pattern="[A-z ]+" name="Nombre" placeholder="Nombre" value="@x.Alumno.Nombre"/>
             </div>
             <div class="form-group">
                 <label for="Apellido">Apellido</label>
-                <input class="form-control" type="text" pattern="[A-z ]+" name="Apellido" placeholder="Apellido" value="@usuario.Apellido"/>
+                <input class="form-control" type="text" pattern="[A-z ]+" name="Apellido" placeholder="Apellido" value="@x.Alumno.Apellido"/>
             </div>
             <div class="form-group">
                 <label for="Clave">Clave</label>
-                <input class="form-control" type="password" name="Clave" placeholder="Clave" value="@usuario.Clave"/>
+                <input class="form-control" type="password" name="Clave" placeholder="Clave" value="@x.Alumno.Clave"/>
             </div>
             <div class="form-group">
                 <label for="Sexo">Sexo</label>
-                <input class="form-control" type="text" pattern="[MF]" name="Sexo" placeholder="Sexo" value="@usuario.Sexo"/>
+                <input class="form-control" type="text" pattern="[MF]" name="Sexo" placeholder="Sexo" value="@x.Alumno.Sexo"/>
             </div>
             <div class="form-group">
                 <label for="Activo">Activo</label>
-                @if (usuario.Activo)
+                @if (x.Alumno.Activo)
                 {
-                <input class="form-control" type="checkbox" name="Activo" value="true"/>
+                <input class="form-control" type="checkbox" name="Activo" value="true" checked="true"/>
                 }
                 else
                 {
-                <input class="form-control" type="checkbox" name="Activo" value="true" checked="true"/>
+                <input class="form-control" type="checkbox" name="Activo" value="true"/>
+                }
+            </div>
+            <div class="form-group">
+                <label for="Calificacion">Calificacion</label>
+                @if (x.Calificacion == null)
+                {
+                    <input class="form-control" type="text" name="Calificacion" placeholder="Calificacion" value="0"/>
+                }
+                else
+                {
+                    <input class="form-control" type="text" name="Calificacion" placeholder="Calificacion" value="@x.Calificacion.Valor"/>
                 }
             </div>
             <div class="form-group">
                 <a href="/Maestro/CalificacionAlumno/" class="btn btn-primary">Capturar calificación</a>
             </div>
             <div class="form-group">
-                <a href="/Maestro/BajaAlumno/@usuario.IdUsuario" class="btn btn-primary">Eliminar</a>
+                <a href="/Maestro/BajaAlumno/x.Alumno.IdUsuario" class="btn btn-primary">Eliminar</a>
             </div>
         </li>
     }
