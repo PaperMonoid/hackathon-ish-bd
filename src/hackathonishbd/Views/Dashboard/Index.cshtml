@@ -1,4 +1,4 @@
-﻿@if (!User.Identity.IsAuthenticated)
+﻿@if (User.Identity.IsAuthenticated)
 {
 <h2>Login Succesfull</h2>
 <ol>
@@ -11,5 +11,6 @@
 }
 else
 {
-    <p href="/">home</p>
+    <p>FAIL</p>
+    <a href="/">home</a>
 }

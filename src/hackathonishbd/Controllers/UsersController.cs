@@ -1,10 +1,5 @@
-﻿using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
 using System.Web.Security;
 using NHibernate;
 using hackathonishbd.Models;
@@ -14,10 +9,6 @@ namespace hackathonishbd.Controllers
     public class UsersController : Controller
     {
 
-        public ActionResult Index()
-        {
-            return View();
-        }
         [HttpPost]
         public ActionResult Index(T_usuarios users)
         {
@@ -35,27 +26,15 @@ namespace hackathonishbd.Controllers
                         FormsAuthentication.SetAuthCookie(users.Nombre, false);
                         return RedirectToAction("", "Dashboard");
                     }
-                    tx.Commit();
                 }
             }
             finally
             {
                 NHibernateHelper.CloseSession();
-
-
-                if (authUser != null)
-                {
-                    Session["role"] = authUser.Role;
-
-                    FormsAuthentication.SetAuthCookie(users.userName, false);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username and/or password");
-                }
-
-                return View();
+              
             }
+            return RedirectToAction("", "/Home");
 
         }
     }
+}

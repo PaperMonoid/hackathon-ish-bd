@@ -7,6 +7,7 @@ using System.Web.Mvc.Ajax;
 
 namespace hackathonishbd.Controllers
 {
+    [RoutePrefix("dashboard")]
     public class DashboardController : Controller
     {
         public ActionResult Index()

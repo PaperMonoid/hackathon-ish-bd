@@ -115,7 +115,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\TH_acceso.cs" />
     <Compile Include="Models\TH_clave.cs" />
     <Compile Include="Models\T_CALIFICACIONES.cs" />
@@ -139,7 +138,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
