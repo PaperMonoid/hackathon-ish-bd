@@ -21,15 +21,15 @@ namespace hackathonishbd.Controllers
 
         [HttpPost]
         [Route("AltaAlumno")]
-        public ActionResult AltaAlumno(T_usuarios alumno)
+        public ActionResult AltaAlumno(Usuario alumno)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             try
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    alumno.Fecha_registro = DateTime.Now;
-                    alumno.Fecha_acceso = DateTime.Now;
+                    alumno.FechaRegistro = DateTime.Now;
+                    alumno.FechaAcceso = DateTime.Now;
                     session.Save(alumno);
                     tx.Commit();
                 }
@@ -51,14 +51,14 @@ namespace hackathonishbd.Controllers
                                .Select(x => x.ID_rol)
                                .First();
 
-            IQueryable<T_usuarios> alumnos = session.Query<T_usuarios>()
+            IQueryable<Usuario> alumnos = session.Query<Usuario>()
                 .Where(x => x.Rol == rol);
-            var calificacionalta = session.Query<T_CALIFICACIONES>()
-                                          .Where(x => x.ID_maestro == 2)
-                                          .Max(x =>x.Calificacion);
-            var calificacionbaja = session.Query<T_CALIFICACIONES>()
-                                          .Where(x => x.ID_maestro == 2)
-                                          .Max(x => x.Calificacion);
+            var calificacionalta = session.Query<Calificacion>()
+                                          .Where(x => x.IdMaestro == 2)
+                                          .Max(x =>x.Valor);
+            var calificacionbaja = session.Query<Calificacion>()
+                                          .Where(x => x.IdMaestro == 2)
+                                          .Max(x => x.Valor);
             switch (Busqueda)
             {
                 case "Nombre":

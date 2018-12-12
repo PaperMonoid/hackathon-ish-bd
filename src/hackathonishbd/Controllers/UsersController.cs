@@ -12,14 +12,14 @@ namespace hackathonishbd.Controllers
 
         [HttpPost]
         [Route("index")]
-        public ActionResult Index(int ID_usuario, string Clave)
+        public ActionResult Index(int IdUsuario, string Clave)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             using (ITransaction tx = session.BeginTransaction())
             {
 
-                var authUser = session.Query<T_usuarios>()
-                                       .Where(x => x.ID_usuario == ID_usuario)
+                var authUser = session.Query<Usuario>()
+                                       .Where(x => x.IdUsuario == IdUsuario)
                                        .FirstOrDefault();
                 if (authUser != null)
                 {

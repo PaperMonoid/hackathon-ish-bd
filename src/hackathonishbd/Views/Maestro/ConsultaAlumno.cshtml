@@ -23,6 +23,8 @@
 <a href="#santiago">Maxima</a>
 <a href="#santiago">Minima</a>
 <ul class="list-group"> 
+    @foreach (Usuario usuario in ViewData["usuarios"] as List<Usuario>)
+    {
     <li id="santiago" class="list-group-item">
         <div class="form-group">
             <label for="ID_usuario">Id Alumno</label>
@@ -55,4 +57,5 @@
             <a href="Maestro/EliminarAlumno/" class="btn btn-primary">Eliminar</a>
         </div>
     </li>
+    }
 </ul>
