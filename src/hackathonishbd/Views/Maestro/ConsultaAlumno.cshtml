@@ -1,0 +1,58 @@
+﻿<form action="/Maestro/ConsultaAlumno" method="GET">
+    <div class="form-row">
+        <div class="form-col">
+            <select class="form-control" name="Busqueda">
+                <option value="Nombre">Nombre</option>
+                <option value="Apellido">Apellido</option>
+            </select>
+        </div>
+        <div class="form-col">
+            <input class="form-control" type="text" name="Valor" autofocus=""/>
+        </div>
+        <div class="form-col">
+            <input class="btn btn-secondary" type="submit" value="Buscar">
+        </div>
+        <div style="float:right;">
+            <a class="btn btn-primary" href="/Maestro/AltaAlumno">Nuevo</a> 
+        </div>
+    </div>
+</form>
+<br/>
+<label>Total</label>
+<label>Promedio</label>
+<a href="#santiago">Maxima</a>
+<a href="#santiago">Minima</a>
+<ul class="list-group"> 
+    <li id="santiago" class="list-group-item">
+        <div class="form-group">
+            <label for="ID_usuario">Id Alumno</label>
+            <input class="form-control" type="text" pattern="[0-9]+" name="ID_usuario" placeholder="Id Alumno"/>
+        </div>
+        <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input class="form-control" type="text" pattern="[A-z ]+" name="Nombre" placeholder="Nombre"/>
+        </div>
+        <div class="form-group">
+            <label for="Apellido">Apellido</label>
+            <input class="form-control" type="text" pattern="[A-z ]+" name="Apellido" placeholder="Apellido"/>
+        </div>
+        <div class="form-group">
+            <label for="Clave">Clave</label>
+            <input class="form-control" type="password" name="Clave" placeholder="Clave"/>
+        </div>
+        <div class="form-group">
+            <label for="Sexo">Sexo</label>
+            <input class="form-control" type="text" pattern="[MF]" name="Sexo" placeholder="Sexo"/>
+        </div>
+        <div class="form-group">
+            <label for="B_activo">Activo</label>
+            <input class="form-control" type="checkbox" name="B_activo" value="true"/>
+        </div>
+        <div class="form-group">
+            <a href="Maestro/CalificacionAlumno/" class="btn btn-primary">Capturar calificación</a>
+        </div>
+        <div class="form-group">
+            <a href="Maestro/EliminarAlumno/" class="btn btn-primary">Eliminar</a>
+        </div>
+    </li>
+</ul>
