@@ -1,1 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns ="ürn:nhibernate-mapping-2.2"
+                   assembly ="hackathonishbd" namespace="hackatonishbd.Models">
+  <class name="T_rol" table= '"T_rol"'>
+    <id name="ID-rol">
+      <column name='"ID_rol"' not-null="true"/>
+    </id>
+    <property name="Descripcion">
+      <column name='"Descripcion"'/>
+    </property>
+  </class>
+</hibernate-mapping>

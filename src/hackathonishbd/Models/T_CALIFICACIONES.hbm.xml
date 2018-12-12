@@ -6,13 +6,19 @@
       <column name='"ID_calificaciones"' not-null="true"/>
     </id>
     <property name="ID_maestro">
-      <column name="ID_maestro"/>
+      <column name='"ID_maestro"'/>
     </property>
     <property name="ID_alumno">
-      <column name="ID_alumno"/>
+      <column name='"ID_alumno"'/>
     </property>
     <property name="Calificacion">
-      <column name
+      <column name='"Calificacion"'/>
+    </property>
+    <property name="B_Final">
+      <column name ='"B_Final"'/>
+    </property>
+    <property name="Fecha_Final">
+      <column name='"Fecha_Final"'/>
     </property>
   </class>
 </hibernate-mapping>
