@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using NHibernate;
 using hackathonishbd.Models;
+using System;
 
 namespace hackathonishbd.Controllers
 {
@@ -10,13 +11,14 @@ namespace hackathonishbd.Controllers
     public class AdministradorController : Controller
     {
         [HttpGet]
-        [Route("alta")]
+        [Route("AltaUsuario")]
         public ActionResult AltaUsuario()
         {
-            return view();
+            return View();
         }
+
         [HttpPost]
-        [Route("alta")]
+        [Route("AltaUsuario")]
         public ActionResult AltaUsuario(T_usuarios usuario)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
@@ -24,8 +26,8 @@ namespace hackathonishbd.Controllers
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    alumno.FechaRegistro = DateTime.Now;
-                    session.Save(alumno);
+                    usuario.Fecha_registro = DateTime.Now;
+                    session.Save(usuario);
                     tx.Commit();
                 }
             }
