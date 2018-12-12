@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
+<<<<<<< HEAD
                    assembly ="hackathonishbd" namespace = "hackathonishbd.Models">
   <class name ="T_usuarios" table ='"T_usuarios"'>
     <id name ="ID_usuario" table='"T_usuarios"'>
       <column name ='"ID_usuario"' not-null='¨true¨'/>
+=======
+                   assembly ="hackatonishbd" namespace="hackatonish.Models">
+  <class name ="T_usuarios" table ='"T_usuarios"'>
+    <id name ="ID_usuario" >
+      <column name ='"ID_usuario"' not-null="true"/>
+>>>>>>> 69b0a263fa5fca74ca2a38920d2faeb8b4bfbec2
     </id>
     <property name ="Nombre">
       <column name ='"Nombre"'/>

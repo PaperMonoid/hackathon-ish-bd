@@ -105,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\TempPE\" />
     <Folder Include="Scripts\" />
     <Folder Include="Views\Maestro\" />
   </ItemGroup>
@@ -117,22 +119,65 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\TH_acceso.cs" />
     <Compile Include="Models\TH_clave.cs" />
     <Compile Include="Models\T_CALIFICACIONES.cs" />
     <Compile Include="Models\T_rol.cs" />
     <Compile Include="Models\T_usuarios.cs" />
     <Compile Include="NHibernateHelper.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.xml" />
+    <Content Include="bin\hackathonishbd.dll" />
+    <Content Include="bin\hackathonishbd.pdb" />
+    <Content Include="bin\Iesi.Collections.dll" />
+    <Content Include="bin\Iesi.Collections.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\NHibernate.dll" />
+    <Content Include="bin\NHibernate.xml" />
+    <Content Include="bin\Npgsql.dll" />
+    <Content Include="bin\Npgsql.pdb" />
+    <Content Include="bin\Npgsql.xml" />
+    <Content Include="bin\Remotion.Linq.dll" />
+    <Content Include="bin\Remotion.Linq.EagerFetching.dll" />
+    <Content Include="bin\Remotion.Linq.EagerFetching.xml" />
+    <Content Include="bin\Remotion.Linq.xml" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\System.ValueTuple.dll" />
+    <Content Include="bin\System.ValueTuple.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="Models\TH_acceso.hbm.xml" />
     <Content Include="Models\TH_clave.hbm.xml" />
     <Content Include="Models\T_CALIFICACIONES.hbm.xml" />
     <Content Include="Models\T_rol.hbm.xml" />
-    <Content Include="Models\T_usuarios.hbm.xml" />
+    <EmbeddedResource Include="Models\T_usuarios.hbm.xml" />
+    <Content Include="obj\Debug\hackathonishbd.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\hackathonishbd.dll" />
+    <Content Include="obj\Debug\hackathonishbd.pdb" />
+    <Content Include="obj\Release\hackathonishbd.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\hackathonishbd.dll" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -141,7 +186,29 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Maestro\AltaAlumno.cshtml" />
+    <Content Include="Views\Maestro\ConsultaAlumno.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\hackathonishbd.dll.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\hackathonishbd.csproj.CopyComplete" />
+    <Content Include="obj\Debug\hackathonishbd.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\hackathonishbd.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\project.razor.json" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\hackathonishbd.csproj.CopyComplete" />
+    <Content Include="obj\Release\hackathonishbd.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\hackathonishbd.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\InicioSesion\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

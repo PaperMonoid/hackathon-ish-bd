@@ -1,60 +1,41 @@
-﻿using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
 using System.Web.Security;
 using NHibernate;
+using hackathonishbd.Models;
 
 namespace hackathonishbd.Controllers
 {
+    [RoutePrefix("user")]
     public class UsersController : Controller
     {
 
-        public ActionResult Index()
-        {
-            return View();
-        }
         [HttpPost]
-        public ActionResult Index(Users users)
+        [Route("index")]
+        public ActionResult Index(int ID_usuario,string Clave)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
-            try
-            {
                 using (ITransaction tx = session.BeginTransaction())
                 {
 
-                    var authUser = session.Query<Users>()
-                                           .Where(x => x.ID_usuario == ID_usuario && x.Clave == Clave)
-                                           .First();
+                    var authUser = session.Query<T_usuarios>()
+                                           .Where(x => x.ID_usuario == ID_usuario )
+                                           .FirstOrDefault();
                     if (authUser != null)
                     {
-                        FormsAuthentication.SetAuthCookie(users.Nombre, false);
+                        FormsAuthentication.SetAuthCookie(authUser.Nombre, false);
+                NHibernateHelper.CloseSession();
                         return RedirectToAction("", "Dashboard");
                     }
-                    tx.Commit();
-                }
-            }
-            finally
-            {
-                NHibernateHelper.CloseSession();
 
-
-                if (authUser != null)
-                {
-                    Session["role"] = authUser.Role;
-
-                    FormsAuthentication.SetAuthCookie(users.userName, false);
+                    return RedirectToAction("", "");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username and/or password");
-                }
+<<<<<<< HEAD
 
             }
             return View();
+=======
+>>>>>>> 69b0a263fa5fca74ca2a38920d2faeb8b4bfbec2
         }
     }
 }
