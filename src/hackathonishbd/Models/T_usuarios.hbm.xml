@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
-                   assembly = "hackatonishbd.Models">
-<class name ="T_usuarios" table ='"T_usuarios"'>
-  <id name ="ID_usuario" table='"T_usuarios"'>
-    <column name ='"ID_usuario"' not-null='¨true¨'/>
-  </id>
-  <property name ="Nombre">
-    <column name ='"Nombre"'/>
-  </property>
-  <property name="Apellido">
-    <column name ='"Apellido"'/>
-  </property>
-  <property name="Clave">
-    <column name='"Clave"'/>
-  </property>
-  <property name="Sexo">
-    <column name='"Sexo"'/>
-  </property>
-  <property name="Rol">
-    <column name='"Rol"'/>
-  </property>
-  <property name ="Fecha_registro">
-    <column name ='"Fecha_registro"'/>
-  </property>
-  <property name="Fecha_acceso">
-    <column name ='"Fecha_acceso"'/>
-  </property>
-  <property name="B_activo">
-    <column name='"B_activo"'/>
-  </property>
-</class>
+                   assembly ="hackathonishbd" namespace = "hackathonishbd.Models">
+  <class name ="T_usuarios" table ='"T_usuarios"'>
+    <id name ="ID_usuario" table='"T_usuarios"'>
+      <column name ='"ID_usuario"' not-null='¨true¨'/>
+    </id>
+    <property name ="Nombre">
+      <column name ='"Nombre"'/>
+    </property>
+    <property name="Apellido">
+      <column name ='"Apellido"'/>
+    </property>
+    <property name="Clave">
+      <column name='"Clave"'/>
+    </property>
+    <property name="Sexo">
+      <column name='"Sexo"'/>
+    </property>
+    <property name="Rol">
+      <column name='"Rol"'/>
+    </property>
+    <property name ="Fecha_registro">
+      <column name ='"Fecha_registro"'/>
+    </property>
+    <property name="Fecha_acceso">
+      <column name ='"Fecha_acceso"'/>
+    </property>
+    <property name="B_activo">
+      <column name='"B_activo"'/>
+    </property>
+  </class>
 </hibernate-mapping>

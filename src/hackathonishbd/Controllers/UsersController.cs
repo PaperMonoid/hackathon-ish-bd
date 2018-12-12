@@ -53,8 +53,8 @@ namespace hackathonishbd.Controllers
                     ModelState.AddModelError("", "Invalid username and/or password");
                 }
 
-                return View();
             }
-
+            return View();
         }
     }
+}

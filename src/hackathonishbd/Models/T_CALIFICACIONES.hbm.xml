@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
-                   assembly ="hackatonishbd" namespace="hackatonish.Models">
+                   assembly ="hackathonishbd" namespace="hackatonish.Models">
   <class name ="T_CALIFICACIONES" table ='"T_CALIFICACIONES"'>
     <id name ="ID_calificaciones">
       <column name='"ID_calificaciones"' not-null="true"/>
