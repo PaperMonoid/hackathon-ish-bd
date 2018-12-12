@@ -6,35 +6,30 @@ using hackathonishbd.Models;
 
 namespace hackathonishbd.Controllers
 {
+    [RoutePrefix("user")]
     public class UsersController : Controller
     {
 
         [HttpPost]
-        public ActionResult Index(T_usuarios users)
+        [Route("index")]
+        public ActionResult Index(int ID_usuario,string Clave)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
-            try
-            {
                 using (ITransaction tx = session.BeginTransaction())
                 {
 
                     var authUser = session.Query<T_usuarios>()
-                                           .Where(x => x.ID_usuario == users.ID_usuario && x.Clave == users.Clave)
-                                           .First();
+                                           .Where(x => x.ID_usuario == ID_usuario )
+                                           .FirstOrDefault();
                     if (authUser != null)
                     {
-                        FormsAuthentication.SetAuthCookie(users.Nombre, false);
+                        FormsAuthentication.SetAuthCookie(authUser.Nombre, false);
+                NHibernateHelper.CloseSession();
                         return RedirectToAction("", "Dashboard");
                     }
-                }
-            }
-            finally
-            {
-                NHibernateHelper.CloseSession();
-              
-            }
-            return RedirectToAction("", "/Home");
 
+                    return RedirectToAction("", "");
+                }
         }
     }
 }

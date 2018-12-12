@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
-                   assembly="hackantonishbd" namespace="hackathonishbd.Models">
+                   assembly="hackanthonishbd" namespace="hackathonishbd.Models">
   <class name="TH_clave" table='"TH_clave"'>
     <id name="I_seq">
       <column name='"I_seq"' not-null='"true"'/>
