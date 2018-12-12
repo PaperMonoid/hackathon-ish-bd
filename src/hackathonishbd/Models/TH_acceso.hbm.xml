@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
+                   assembly ="hackathonishbd" namespace ="hackathonishbd.Models">
+  <class name ="TH_acceso" table='"TH_acceso"'>
+    <id name="I_seq">
+      <column name='"I_seq"' not-null="true"/>
+    </id>
+    <property name ="ID_usuario">
+      <column name='"ID_usuario"'/>
+    </property>
+    <property name="Fecha_acceso">
+      <column name='"Fecha_acceso"'/>
+    </property>
+  </class>
+</hibernate-mapping>
