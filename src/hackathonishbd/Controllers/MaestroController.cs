@@ -43,22 +43,16 @@ namespace hackathonishbd.Controllers
 
         [HttpGet]
         [Route("ConsultaAlumno")]
-        public ActionResult Index(string Busqueda, string Valor)
+        public ActionResult ConsultaAlumno(string Busqueda, string Valor)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             var rol = session.Query<Rol>()
-                               .Where(x => x.Descripcion == "Alumno")
+                               .Where(x => x.Descripcion == "ALUMNO")
                                .Select(x => x.IdRol)
-                               .First();
+                               .FirstOrDefault();
 
             IQueryable<Usuario> alumnos = session.Query<Usuario>()
                 .Where(x => x.Rol == rol);
-            var calificacionalta = session.Query<Calificacion>()
-                                          .Where(x => x.IdMaestro == 2)
-                                          .Max(x =>x.Valor);
-            var calificacionbaja = session.Query<Calificacion>()
-                                          .Where(x => x.IdMaestro == 2)
-                                          .Max(x => x.Valor);
             switch (Busqueda)
             {
                 case "Nombre":
@@ -67,16 +61,18 @@ namespace hackathonishbd.Controllers
                 case "Apellido":
                     ViewData["Alumnos"] = alumnos.Where(x => x.Apellido == Valor).ToList();
                     break;
-                case "Maximo":
-                    ViewData["Calificación más alta"] = calificacionalta.ToString();
-                    break;
-                case "Minimo":
-                    ViewData["Calificación más baja"] = calificacionbaja.ToString();
-                    break;
                 default:
                     ViewData["Alumnos"] = alumnos.ToList();
                     break;
             }
+            ViewData["Calificación más alta"] = session.Query<Calificacion>()
+                                          .Where(x => x.IdMaestro == 193440920)
+                                          .OrderBy(x => x.Valor)
+                                          .FirstOrDefault();
+            ViewData["Calificación más baja"] = session.Query<Calificacion>()
+                                          .Where(x => x.IdMaestro == 193440920)
+                                          .OrderByDescending(x => x.Valor)
+                                          .FirstOrDefault();
             NHibernateHelper.CloseSession();
             return View();
         }

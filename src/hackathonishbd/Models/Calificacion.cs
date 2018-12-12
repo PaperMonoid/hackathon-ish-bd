@@ -11,7 +11,7 @@ namespace hackathonishbd.Models
         public virtual int IdMaestro { get; set; }
         public virtual int IdAlumno { get; set; }
         public virtual int Valor { get; set; }
-        public virtual bool BFinal { get; set; }
+        public virtual bool Final { get; set; }
         public virtual DateTime FechaFinal { get; set; }
     }
 }

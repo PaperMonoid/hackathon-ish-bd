@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns ="urn:nhibernate-mapping-2.2"
-                   assembly ="hackathonishbd" namespace="hackatonish.Models">
+                   assembly ="hackathonishbd" namespace="hackathonishbd.Models">
   <class name ="Calificacion" table ='"T_CALIFICACIONES"'>
     <id name ="IdCalificaciones">
       <column name='"ID_calificaciones"' not-null="true"/>
@@ -14,7 +14,7 @@
     <property name="Valor">
       <column name='"Calificacion"'/>
     </property>
-    <property name="BFinal">
+    <property name="Final">
       <column name ='"B_Final"'/>
     </property>
     <property name="FechaFinal">
