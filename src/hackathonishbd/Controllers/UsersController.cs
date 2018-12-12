@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using System.Web.Security;
 using NHibernate;
+using hackathonishbd.Models;
 
 namespace hackathonishbd.Controllers
 {
@@ -18,7 +19,7 @@ namespace hackathonishbd.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(Users users)
+        public ActionResult Index(T_usuarios users)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
             try
@@ -26,8 +27,8 @@ namespace hackathonishbd.Controllers
                 using (ITransaction tx = session.BeginTransaction())
                 {
 
-                    var authUser = session.Query<Users>()
-                                           .Where(x => x.ID_usuario == ID_usuario && x.Clave == Clave)
+                    var authUser = session.Query<T_usuarios>()
+                                           .Where(x => x.ID_usuario == users.ID_usuario && x.Clave == users.Clave)
                                            .First();
                     if (authUser != null)
                     {
