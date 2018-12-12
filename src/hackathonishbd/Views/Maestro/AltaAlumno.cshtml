@@ -4,8 +4,8 @@
 <h1>Alta alumno</h1>
 <form action="/Maestro/AltaAlumno" method="post">
     <div class="form-group">
-        <label for="ID_usuario">Id Alumno</label>
-        <input class="form-control" type="text" pattern="[0-9]+" name="ID_usuario" placeholder="Id Alumno"/>
+        <label for="IdUsuario">Id Alumno</label>
+        <input class="form-control" type="text" pattern="[0-9]+" name="IdUsuario" placeholder="Id Alumno" autofocus=""/>
     </div>
     <div class="form-group">
         <label for="Nombre">Nombre</label>
@@ -17,15 +17,15 @@
     </div>
     <div class="form-group">
         <label for="Clave">Clave</label>
-        <input class="form-control" type="password" name="Clave" placeholder="Clave"/>
+        <input class="form-control" type="password" name="Clave" placeholder="Clave" autocomplete="new-password"/>
     </div>
     <div class="form-group">
         <label for="Sexo">Sexo</label>
         <input class="form-control" type="text" pattern="[MF]" name="Sexo" placeholder="Sexo"/>
     </div>
     <div class="form-group">
-        <label for="B_activo">Activo</label>
-        <input class="form-control" type="checkbox" name="B_activo" value="true"/>
+        <label for="Activo">Activo</label>
+        <input class="form-control" type="checkbox" name="Activo" value="true"/>
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Aceptar"/>
