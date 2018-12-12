@@ -80,7 +80,7 @@ namespace hackathonishbd.Controllers
                                           .OrderByDescending(x => x.Valor)
                                           .FirstOrDefault();
             ViewData["Calificación más baja"] = session.Query<Calificacion>()
-                                          .Where(x => x.IdMaestro == 193440920)
+                                          .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                                           .OrderBy(x => x.Valor)
                                           .FirstOrDefault();
             NHibernateHelper.CloseSession();
