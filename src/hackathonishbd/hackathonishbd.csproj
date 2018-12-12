@@ -108,8 +108,8 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Dashboard.cs" />
-    <Compile Include="Controllers\Users.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
