@@ -2,6 +2,9 @@
 using System.Web;
 using NHibernate;
 using NHibernate.Cfg;
+using hackathonishbd;
+using hackathonishbd.Models.Identity;
+using Microsoft.AspNet.Identity;
 
 namespace hackathonishbd
 {
@@ -27,6 +30,11 @@ namespace hackathonishbd
             }
 
             return currentSession;
+        }
+
+        public IUserStore<User, int> Users
+        {
+            get { return new IdentityStore(GetCurrentSession()); }
         }
 
         public static void CloseSession()
