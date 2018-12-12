@@ -1,7 +1,11 @@
 ﻿@using hackathonishbd.Models
 @{
-    Calificacion min = @ViewData["Calificación más alta"] as Calificacion;
-    Calificacion max = @ViewData["Calificación más baja"] as Calificacion;
+    Calificacion max = @ViewData["Calificación más alta"] as Calificacion;
+    Calificacion min = @ViewData["Calificación más baja"] as Calificacion;
+    int maxValor = max?.Valor ?? 0;
+    int minValor = min?.Valor ?? 0;
+    int maxId = max?.IdAlumno ?? 0;
+    int minId = min?.IdAlumno ?? 0;
 }
 <form action="/Maestro/ConsultaAlumno" method="GET">
     <div class="form-row">
@@ -23,10 +27,14 @@
     </div>
 </form>
 <br/>
-<label>Total</label>
-<label>Promedio</label>
-<a href="#@max.IdAlumno">@max.Valor</a>
-<a href="#@min.IdAlumno">@min.Valor</a>
+<label>Total:</label><label>@ViewData["Total"]</label>
+<br/>
+<label>Promedio:</label><label>@ViewData["Promedio"]</label>
+<br/>
+<label>Máximo: </label><label><a href="#@maxId">@maxValor</a></label>
+<br/>
+<label>Mínimo: </label><label><a href="#@minId">@minValor</a></label>
+<br/>
 <ul class="list-group"> 
     @foreach (Usuario usuario in ViewData["Alumnos"] as List<Usuario>)
     {
@@ -53,13 +61,20 @@
             </div>
             <div class="form-group">
                 <label for="Activo">Activo</label>
+                @if (usuario.Activo)
+                {
                 <input class="form-control" type="checkbox" name="Activo" value="true"/>
+                }
+                else
+                {
+                <input class="form-control" type="checkbox" name="Activo" value="true" checked="true"/>
+                }
             </div>
             <div class="form-group">
-                <a href="Maestro/CalificacionAlumno/" class="btn btn-primary">Capturar calificación</a>
+                <a href="/Maestro/CalificacionAlumno/" class="btn btn-primary">Capturar calificación</a>
             </div>
             <div class="form-group">
-                <a href="Maestro/EliminarAlumno/" class="btn btn-primary">Eliminar</a>
+                <a href="/Maestro/BajaAlumno/@usuario.IdUsuario" class="btn btn-primary">Eliminar</a>
             </div>
         </li>
     }
