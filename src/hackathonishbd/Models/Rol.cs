@@ -5,9 +5,9 @@ using System.Web;
 
 namespace hackathonishbd.Models
 {
-    public class T_rol
+    public class Rol
     {
-        public virtual int ID_rol { get; set; }
+        public virtual int IdRol { get; set; }
         public virtual string Descripcion { get; set; }
     }
 }

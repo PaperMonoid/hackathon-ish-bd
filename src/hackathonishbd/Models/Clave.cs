@@ -5,11 +5,11 @@ using System.Web;
 
 namespace hackathonishbd.Models
 {
-    public class TH_clave
+    public class Clave
     {
-        public virtual int I_seq { get; set; }
-        public virtual int ID_usuario { get; set; }
-        public virtual string Clave_ant { get; set; }
+        public virtual int IdClave { get; set; }
+        public virtual int IdUsuario { get; set; }
+        public virtual string ClaveAnterior { get; set; }
         public virtual DateTime Fecha { get; set; }
     }
 }

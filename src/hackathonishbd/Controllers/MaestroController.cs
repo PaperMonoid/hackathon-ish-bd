@@ -46,9 +46,9 @@ namespace hackathonishbd.Controllers
         public ActionResult Index(string Busqueda, string Valor)
         {
             ISession session = NHibernateHelper.GetCurrentSession();
-            var rol = session.Query<T_rol>()
+            var rol = session.Query<Rol>()
                                .Where(x => x.Descripcion == "Alumno")
-                               .Select(x => x.ID_rol)
+                               .Select(x => x.IdRol)
                                .First();
 
             IQueryable<Usuario> alumnos = session.Query<Usuario>()

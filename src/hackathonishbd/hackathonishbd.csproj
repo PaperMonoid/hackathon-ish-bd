@@ -120,10 +120,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Models\TH_acceso.cs" />
-    <Compile Include="Models\TH_clave.cs" />
+    <Compile Include="Models\Acceso.cs" />
+    <Compile Include="Models\Clave.cs" />
     <Compile Include="Models\Calificacion.cs" />
-    <Compile Include="Models\T_rol.cs" />
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="NHibernateHelper.cs" />
   </ItemGroup>
@@ -162,10 +162,6 @@
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
-    <Content Include="Models\TH_acceso.hbm.xml" />
-    <Content Include="Models\TH_clave.hbm.xml" />
-    <Content Include="Models\Calificacion.hbm.xml" />
-    <Content Include="Models\T_rol.hbm.xml" />
     <EmbeddedResource Include="Models\Usuario.hbm.xml" />
     <Content Include="obj\Debug\hackathonishbd.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\hackathonishbd.dll" />
@@ -179,6 +175,10 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <EmbeddedResource Include="Models\Calificacion.hbm.xml" />
+    <EmbeddedResource Include="Models\Rol.hbm.xml" />
+    <EmbeddedResource Include="Models\Acceso.hbm.xml" />
+    <EmbeddedResource Include="Models\Clave.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dashboard\Index.cshtml" />
