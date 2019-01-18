@@ -1,0 +1,26 @@
+﻿@using hackathonishbd.Models
+@{    
+    ViewBag.Title = "Calificación alumno";
+    Usuario maestro = @ViewData["maestro"] as Usuario;
+    Usuario alumno = @ViewData["alumno"] as Usuario;
+}
+<h1>Calificación alumno</h1>
+<form action="/Maestro/CalificacionAlumno" method="post">
+    <div class="form-group">
+        <label for="IdAlumno">Id Alumno</label>
+        <input class="form-control" type="text" pattern="[0-9]+" name="IdAlumno" placeholder="Id Alumno" autofocus="" value="@alumno.IdUsuario"/>
+    </div>
+    <div class="form-group">
+        <label for="IdMaestro">Id Maestro</label>
+        <input class="form-control" type="text" pattern="[0-9]+" name="IdMaestro" placeholder="Id Maestro" value="@maestro.IdUsuario"/>
+    </div>
+    <div class="form-group">
+        <label for="Valor">Calificación</label>
+        <input class="form-control" type="text" pattern="[0-9]+" name="Valor" placeholder="Calificación"/>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Aceptar"/>
+    </div>
+</form>
+
+

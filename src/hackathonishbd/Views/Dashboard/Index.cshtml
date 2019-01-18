@@ -1,16 +1,30 @@
-﻿@if (User.Identity.IsAuthenticated)
+﻿
+@if (Global._rol == "ALUMNO" || Global._rol == "MAESTRO" || Global._rol == "ADMIN")
 {
-<h2>Login Succesfull</h2>
-<ol>
-    <li href="">Alta, baja,calif</li>
-    <li href="">maestra</li>
-    <li href="">kardex</li>
-    <li href="">cambio clave</li>
-    <li href="">historiales</li>
-</ol>
+    <h2>Bienvenido @Global._rol</h2>
+    <ol>
+        @if (Global._rol != "ALUMNO")
+        {
+            <li><a href="Maestro/ConsultaAlumno">Alta, baja,calif</a></li>
+        }
+        @if (Global._rol == "ADMIN")
+        {
+            <li><a href="">Maestra</a></li>
+        }
+        @if (Global._rol != "MAESTRO")
+        {
+            <li><a href="Alumno/ConsultaCalificaciones">Kardex</a></li>
+        }
+        @if (Global._rol != "ADMIN")
+        {
+            <li><a href="Historial/Acceso">historial acceso</a></li>
+            <li><a href="Historial/Clave">historial clave</a></li>
+        }
+        <li><a href="user/CambioClave">cambio clave</a>        </li>
+    </ol>
 }
-else
+else 
 {
-    <p>FAIL</p>
-    <a href="/">home</a>
+    <p>Forbidden</p>
+    <a href="/">Please Log In</a>
 }

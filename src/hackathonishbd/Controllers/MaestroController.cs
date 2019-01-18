@@ -47,6 +47,105 @@ namespace hackathonishbd.Controllers
         }
 
         [HttpGet]
+        [Route("CalificacionAlumno/{IdAlumno}")]
+        public ActionResult CalificacionAlumno(int IdAlumno)
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    Calificacion calificacion = session.Query<Calificacion>()
+                                                       .Where(x => x.IdAlumno == IdAlumno)
+                                                       .FirstOrDefault();
+                    Usuario alumno = session.Query<Usuario>()
+                                            .Where(x => x.IdUsuario == IdAlumno)
+                                            .FirstOrDefault();
+                    Usuario maestro = session.Query<Usuario>()
+                                            .Where(x => x.IdUsuario == Global._id)
+                                            .FirstOrDefault();
+                    @ViewData["alumno"] = alumno;
+                    @ViewData["maestro"] = maestro;
+                    @ViewData["calificacion"] = calificacion;
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [Route("CalificacionAlumno")]
+        public ActionResult CalificacionAlumno(Calificacion calificacion)
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    calificacion.Final = false;
+                    session.Save(calificacion);
+                    tx.Commit();
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return RedirectToAction("ConsultarAlumno");
+        }
+
+        [HttpGet]
+        [Route("ModificarCalificacionAlumno/{IdCalificaciones}")]
+        public ActionResult ModificarCalificacionAlumno(int IdCalificaciones)
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    Calificacion calificacion = session.Query<Calificacion>()
+                                                       .Where(x => x.IdCalificaciones == IdCalificaciones)
+                                                       .FirstOrDefault();
+                    ViewData["calificacion"] = calificacion;
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [Route("ModificarCalificacionAlumno")]
+        public ActionResult CalificacionAlumno(int IdCalificaciones, int Valor)
+        {
+            ISession session = NHibernateHelper.GetCurrentSession();
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    Calificacion calificacion = session.Query<Calificacion>()
+                                                       .Where(x => x.IdCalificaciones == IdCalificaciones && !x.Final)
+                                                       .FirstOrDefault();
+                    calificacion.Valor = Valor;
+                    calificacion.Final = true;
+                    calificacion.FechaFinal = DateTime.Now;
+                    session.Update(calificacion);
+                    tx.Commit();
+                }
+            }
+            finally
+            {
+                NHibernateHelper.CloseSession();
+            }
+            return RedirectToAction("ConsultaAlumno");
+        }
+
+        [HttpGet]
         [Route("ConsultaAlumno")]
         public ActionResult ConsultaAlumno(string Busqueda, string Valor)
         {
@@ -72,23 +171,23 @@ namespace hackathonishbd.Controllers
                 {
                     Alumno = x,
                     Calificacion = session.Query<Calificacion>()
-                                          .Where(y => x.IdUsuario == 193440920 && x.IdUsuario == y.IdAlumno)
+                                          .Where(y => y.IdMaestro == Global._id && x.IdUsuario == y.IdAlumno)
                                           .FirstOrDefault()
                 })
                 .ToList();
             ViewData["Total"] = session.Query<Calificacion>()
-                              .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
+                              .Where(x => x.IdMaestro == Global._id && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                               .Count();
             ViewData["Promedio"] = session.Query<Calificacion>()
-                              .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
+                              .Where(x => x.IdMaestro == Global._id && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                               .Select(x => x.Valor)
                               .Average();
             ViewData["Calificación más alta"] = session.Query<Calificacion>()
-                                          .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
+                                          .Where(x => x.IdMaestro == Global._id && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                                           .OrderByDescending(x => x.Valor)
                                           .FirstOrDefault();
             ViewData["Calificación más baja"] = session.Query<Calificacion>()
-                                          .Where(x => x.IdMaestro == 193440920 && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
+                                          .Where(x => x.IdMaestro == Global._id && alumnos.Any(y => y.IdUsuario == x.IdAlumno))
                                           .OrderBy(x => x.Valor)
                                           .FirstOrDefault();
             NHibernateHelper.CloseSession();

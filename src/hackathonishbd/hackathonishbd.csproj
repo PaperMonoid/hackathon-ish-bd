@@ -142,6 +142,9 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="obj\Release\TempPE\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Views\Alumno\" />
+    <Folder Include="Views\Users\" />
+    <Folder Include="Views\Historial\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -168,6 +171,8 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Models\AlumnoCalificacion.cs" />
+    <Compile Include="Controllers\AlumnoController.cs" />
+    <Compile Include="Controllers\HistorialController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -221,6 +226,12 @@
     <EmbeddedResource Include="Models\Rol.hbm.xml" />
     <EmbeddedResource Include="Models\Acceso.hbm.xml" />
     <EmbeddedResource Include="Models\Clave.hbm.xml" />
+    <Content Include="Views\Maestro\CalificacionAlumno.cshtml" />
+    <Content Include="Views\Maestro\ModificarCalificacionAlumno.cshtml" />
+    <Content Include="Views\Alumno\ConsultaCalificaciones.cshtml" />
+    <Content Include="Views\Users\CambioClave.cshtml" />
+    <Content Include="Views\Historial\Acceso.cshtml" />
+    <Content Include="Views\Historial\Clave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dashboard\Index.cshtml" />

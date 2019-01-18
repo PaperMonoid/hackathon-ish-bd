@@ -1,0 +1,14 @@
+﻿@using hackathonishbd.Models
+<table style="width:100%; text-align:center">
+  <tr>
+    <th>Maestro</th>
+    <th>Calificacion</th> 
+  </tr>
+    @foreach (AlumnoCalificacion x in ViewData["AlumnosCalificaciones"] as List<AlumnoCalificacion>)
+    {
+            <tr>
+            <td>@x.Calificacion.IdMaestro</td>
+            <td>@x.Calificacion.Valor</td>
+            </tr>
+    }
+</table>

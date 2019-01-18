@@ -1,0 +1,16 @@
+﻿@using hackathonishbd.Models
+<table style="width:100%; text-align:center">
+  <tr>
+    <th>Usuario</th>
+    <th>Clave anterior</th>
+    <th>Fecha de acceso</th> 
+  </tr>
+    @foreach (Clave x in ViewData["Claves"] as List<Clave>)
+    {
+            <tr>
+            <td>@x.IdUsuario</td>
+            <th>@x.ClaveAnterior</th>
+            <td>@x.Fecha</td>
+            </tr>
+    }
+</table> 

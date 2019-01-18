@@ -1,0 +1,14 @@
+﻿@using hackathonishbd.Models
+<table style="width:100%; text-align:center">
+  <tr>
+    <th>Usuario</th>
+    <th>Fecha de acceso</th> 
+  </tr>
+    @foreach (Acceso x in ViewData["Accesos"] as List<Acceso>)
+    {
+            <tr>
+            <td>@x.IdUsuario</td>
+            <td>@x.FechaAcceso</td>
+            </tr>
+    }
+</ul> 

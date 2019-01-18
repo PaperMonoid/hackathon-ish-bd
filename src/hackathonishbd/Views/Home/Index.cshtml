@@ -1,13 +1,14 @@
-﻿@model hackathonishbd.Models.Identity.User
-@{
-    ViewBag.Title = "Home Page";
-}
-<p style="font-size: x-large;">
-    You are now logged in as <strong>@Model.UserName</strong>
-</p>
-@using (Html.BeginForm("LogOff", "Account"))
-{
-    <p>
-        <button>Log off</button>
-    </p>
-}
+﻿﻿<h1>Iniciar sesión</h1>
+<form action="/user/index" method="post">
+    <div class="form-group">
+        <label for="IdUsuario">Id Usuario</label>
+        <input class="form-control" type="text" pattern="[0-9]+" name="IdUsuario" placeholder="Id Usuario" />
+    </div>
+    <div class="form-group">
+        <label for="Clave">Clave</label>
+        <input class="form-control" type="password" name="Clave" placeholder="Clave" />
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Iniciar sesión" />
+    </div>
+</form>
